@@ -72,13 +72,12 @@ component main{public [root]}  = MerkleTreeInclusionProof(3);
 - Hash function is Poseidon
 - `nLevels` is the number of levels in the tree, or the depth of the tree
 - `leaf` is the hash of the original data
-- `pathIndices` is the position of the leaf in the tree, and array with length = nLevels, each element is either 0 or 1
+- `pathIndices` is the position of the leaf in the tree, an array with length = nLevels, each element is either 0 or 1
 - `siblings` is the hashes of the nodes on the path from the leaf to the root. The number of siblings = nLevels
 - Given the `leaf`, the `pathIndices` and the `siblings`, the circuit whould be able to compute the root
-- An example: for the leaf H(E), `pathIndices` is [0,0,1] and the `siblings` is [H(F), H(GH), H(ABCD)]
-  ![Merkle tree](merkle_tree1.png "Merkle tree")
-
 - The circuit computes the root and make sure it is equal to the root input
+- An example of the depth = 3 tree: for leaf H(E), `pathIndices` is [0,0,1] and `siblings` is [H(F), H(GH), H(ABCD)]
+  ![Merkle tree](merkle_tree1.png "Merkle tree")
 
 ### Compile the circuit
 
@@ -157,3 +156,9 @@ snarkjs plonk verify verification_key.json public.json proof.json
 
 [INFO]  snarkJS: OK!
 ```
+
+# Reference
+
+- [Introduction to Zero Knowledge Proof with ZKverse](https://github.com/enricobottazzi/ZKverse)
+- [snarkjs resources](https://zkiap.com/snarkjs)
+- [docs.circom.io](https://docs.circom.io/)
